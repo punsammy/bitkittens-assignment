@@ -7,10 +7,13 @@ $(function(){
       method: 'GET',
       dataType: 'json'
     }).done(function(data) {
+      var catBox = data['cats'];
+      for (var i = 0; i < catBox.length; i++) {
+        cat = catBox[i]
+        id = '#cat' + (i + 1)
 
-      $('<img>').attr('src', 'https://s3.amazonaws.com/bitmakerhq/resources/web-development/bitkittens/20160817_141210.jpeg').appendTo('#cat1');
-      $('<img>').attr('src', 'https://s3.amazonaws.com/bitmakerhq/resources/web-development/bitkittens/moxie.jpg').appendTo('#cat2')
-      $('<img>').attr('src', 'https://s3.amazonaws.com/bitmakerhq/resources/web-development/bitkittens/Bagheera_Mufasa.jpg').appendTo('#cat3')
+        $('<img>').attr('src', cat.photo ).appendTo(id)
+      }
 
     });
 
@@ -33,13 +36,3 @@ $(function(){
 // $('<img>').attr('src', 'https://s3.amazonaws.com/bitmakerhq/resources/web-development/bitkittens/moxie.jpg').appendTo('#cat2')
 // $('<img>').attr('src', 'https://s3.amazonaws.com/bitmakerhq/resources/web-development/bitkittens/Bagheera_Mufasa.jpg').appendTo('#cat3')
 // $('<img>').attr('src', 'https://s3.amazonaws.com/bitmakerhq/resources/web-development/bitkittens/20160817_141210.jpeg').appendTo(id);
-
-
-// Another way
-// var catBox = data['cats'];
-// for (var i = 0; i < catBox.length; i++) {
-//   cat = catBox[i]
-//   id = '#cat' + (i + 1)
-//
-//   $('<img>').attr('src', cat.photo ).appendTo(id)
-// }
